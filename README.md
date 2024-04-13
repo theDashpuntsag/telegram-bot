@@ -4,7 +4,7 @@ Telegram Messenger, commonly known as Telegram, is a cloud-based, cross-platform
 
 ## Get started
 
-1. Its me
+- Start python virtual environment
 
 ## Reference
 
