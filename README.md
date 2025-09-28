@@ -1,12 +1,48 @@
-# Telegram bot
+# Python Telegram Bot
 
-Telegram Messenger, commonly known as Telegram, is a cloud-based, cross-platform, encrypted instant messaging (IM) service. It was originally launched for iOS on 14 August 2013 and Android in October 2013.
+A simple bot built using the python-telegram-bot library that responds to user messages.
 
-## Get started
+## Setup
 
-- Start python virtual environment
+1. Clone the repository:
 
-## Reference
+   ```bash
+   git clone
+   ```
 
-- Telegram API documentation: <https://core.telegram.org/api>
-- Python
+2. Navigate to the project directory:
+
+   ```bash
+   cd python-telegram-bot
+   ```
+
+3. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Create a `.env` file in the project root and add your Telegram bot token:
+
+   ```env
+    TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+   ```
+
+5. Activate your virtual environment (if using one):
+
+   ```bash
+   python3 -m venv venv # Create a virtual environment
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+6. Run the bot:
+
+   ```bash
+   python bot.py
+   ```
+
+7. To update requirements, use:
+
+   ```bash
+   pip freeze > requirements.txt
+   ```
