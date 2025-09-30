@@ -5,6 +5,21 @@ from libs.date_formatter import DateFormatter
 import os
 
 
+class ErrorLineFormatter(colorlog.ColoredFormatter):
+    """Custom formatter that adds line information only for ERROR and CRITICAL logs"""
+    
+    def format(self, record):
+        # Check if this is an error or critical log
+        if record.levelno >= logging.ERROR:
+            # Use format with line information for errors
+            self._style._fmt = '%(log_color)s%(asctime)s | %(module)s | line: %(lineno)d | %(levelname)s | %(message)s'
+        else:
+            # Use format without line information for other levels
+            self._style._fmt = '%(log_color)s%(asctime)s | %(module)s | %(levelname)s | %(message)s'
+        
+        return super().format(record)
+
+
 # Setting up log saving directory if it doesn't exist
 log_dir = "logs"
 if not os.path.exists(log_dir):
@@ -42,16 +57,16 @@ log_colors = {
     'ERROR': 'red',
     'CRITICAL': 'bold_red',
 }
-# Create formatters with a fixed funcName length
-color_formatter = colorlog.ColoredFormatter(
-    '%(log_color)s%(asctime)s | %(module)s line: %(lineno)d | %(levelname)s | %(message)s',
+# Create formatters with line information only for errors
+color_formatter = ErrorLineFormatter(
+    '%(log_color)s%(asctime)s | %(module)s | %(levelname)s | %(message)s',
     log_colors=log_colors,
     reset=True,
     style='%'
 )
 
 file_formatter = logging.Formatter(
-    '%(name)s | %(asctime)s  | %(module)s line: %(lineno)d | %(levelname)s |  %(message)s'
+    '%(name)s | %(asctime)s  | %(module)s | line: %(lineno)d | %(levelname)s |  %(message)s'
 )
 # Add formatters to handlers
 console_handler.setFormatter(color_formatter)
