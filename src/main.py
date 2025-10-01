@@ -12,7 +12,6 @@ def initialize_application():
     try:
         logger.info('================================================================================================')
         logger.info("Initializing application...")
-        logger.error("This is a test error log to demonstrate error logging with line info.")
         initialize_database()
         # Initialization logic goes here
         logger.info("Application initialized successfully.")

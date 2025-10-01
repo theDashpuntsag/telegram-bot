@@ -1,6 +1,5 @@
 from datetime import datetime, timezone
 
-
 class DateFormatter:
     _instance = None;
 
