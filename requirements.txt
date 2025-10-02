@@ -1,3 +1,4 @@
-colorlog==6.8.2
-DateTime==5.5
+colorlog==6.9.0
+dotenv==0.9.9
 logging==0.4.9.6
+python-dotenv==1.1.1

@@ -2,6 +2,8 @@ import os
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 
 @dataclass
@@ -72,9 +74,7 @@ class Config:
     
     def _load_environment(self, env_file: Optional[str] = None):
         """Load environment variables from .env file if it exists."""
-        try:
-            from dotenv import load_dotenv
-            
+        try:            
             if env_file:
                 env_path = Path(env_file)
             else:
